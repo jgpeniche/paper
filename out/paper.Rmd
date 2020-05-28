@@ -1,30 +1,24 @@
 ---
-title: "Beyesian Inference for Decision Making under Atypical Circumstances"
+title: "Beyesian Inference for Decision Making under COVID-19: A case study"
 author: ""
 date: "5/26/2020"
 output: pdf_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+**Introduction**
 
-## R Markdown
+The worldwide health crisis induced by the the ' *SARS-COV 12* ', globally referred as COVID-19, mutated the classic decision making under uncertainty problem into a substancially more uncertain mess due to the lack of closeness of the 2020 pandemic to previous world plights. Under this particuarly uncertain context Bayesian Theory of Inference bestows an adecuate framework to incorporate such new precariousness. 
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+In particular, having a reliable ground where to stand becomes critical for policy makers or other high impact decision makers. The following paper presents a simple, yet non trivial, case study of Bayesian Inference to adress the difficulty of predicting the job loss induced by the COVID-19 lockdown measures. We also stress out some of the caveats of the classical aproach from the Fisher and Neyman school 
+of Mathematical statistics and contrast both approaches slanting outyurns in the context of desicion making.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+Section **I** begins by providing the reader a concrete outlook of the problem and the data at hando to tackle it. Section **II** translates the problem into its concrete mathematical and statistical representation and comments on the frailty of classical solution. Section **III** goes about the same formulation under a simple *by-hand* bayesian alternative while section **IV** proposes a more sophisticated solution. Finally section **V** is a brief utterance on the importance of providing a well grounded inference for decision making proceses.
 
-```{r cars}
-summary(cars)
-```
+# Mexican Social Security Institute and lagged payrrol notices
 
-## Including Plots
 
-You can also embed plots, for example:
+# 
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
