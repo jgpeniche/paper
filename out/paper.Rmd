@@ -29,7 +29,7 @@ Notice that under the prior structural statement, the forecasting of $N_{t+1}$ r
 
 Yet even more naive and for the sake of simplicity lets assume $x_i = (\frac{N_{t+1}}{N_t} - 1) \sim N(\theta, \sigma^2)$ and that $\{x_i \}_{i=1}^N$ constitutes a colection of $i.i.d$ random variables i.e. a *random sample* $X_{(\underline{n})}$. Proceding after the construction of this model $\hat{\theta}$ and $\hat{\sigma}^2$ would correspond to the MLE estimators nothing new.
 
-Although the normal parametrization is convenient for its simplicity, it should stand out to any statistician that there is a major problem choosing the gaussian family because $\theta$ $ \epsilon$ $ \Theta = [ 0, \infty ]$ and under the normality assumption $\Theta =  [- \infty, \infty]$. For now, our way around will be to truncate such $N(\hat{\theta}, \hat{\sigma^2})$ and redistribute tail density [^1].
+Although the normal parametrization is convenient for its simplicity, it should stand out to any statistician that there is a major problem choosing the gaussian family because $\theta$ $\epsilon$ $\Theta = [ 0, \infty ]$ and under the normality assumption $\Theta =  [- \infty, \infty]$. For now, our way around will be to truncate such $N(\hat{\theta}, \hat{\sigma^2})$ and redistribute tail density [^1].
 
 [^1]: This approach is nothing more but a conditional density.
 
