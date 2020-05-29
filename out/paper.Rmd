@@ -12,13 +12,40 @@ The worldwide health crisis induced by the the ' *SARS-COV 12* ', globally refer
 In particular, having a reliable ground where to stand becomes critical for policy makers or other high impact decision makers. The following paper presents a simple, yet non trivial, case study of Bayesian Inference to adress the difficulty of predicting the job loss induced by the COVID-19 lockdown measures. We also stress out some of the caveats of the classical aproach from the Fisher and Neyman school 
 of Mathematical statistics and contrast both approaches slanting outyurns in the context of desicion making.
 
-Section **I** begins by providing the reader a concrete outlook of the problem and the data at hando to tackle it. Section **II** translates the problem into its concrete mathematical and statistical representation and comments on the frailty of classical solution. Section **III** goes about the same formulation under a simple *by-hand* bayesian alternative while section **IV** proposes a more sophisticated solution. Finally section **V** is a brief utterance on the importance of providing a well grounded inference for decision making proceses.
+Section **I** begins by providing the reader a concrete outlook of the problem and the data at hando to tackle it. Section **II** translates the problem into its concrete mathematical and statistical representation and comments on the frailty of classical solution. Section **III** goes about the same formulation under a simple *by-hand* bayesian alternative while section **IV** proposes a more sophisticated solution and cautions the reader on the first asumptions. Finally section **V** is a brief utterance on the importance of providing a well grounded inference for decision making proceses.
 
 # Mexican Social Security Institute and lagged payrrol notices
 
 
+# Estimating labor force decrease the "accepted way"
+
+Having setled some common grounds we can formulate the former situation into statistical language.
+
+Let $N-t$ be the number of workers noticed on time or in advanced by some company to the Social Service Mexican Insitute at some given month $t$. As mentioned before, it's of interest to predict the amounts of the labor force $N_{t+1}$ for the succesive month at the instances of the health crisis.
+
+Which could be a sufficiently simple formulation of the problem? At first, the notation used and even the timely nature of the phenom may suggest some time series approach. However it´s the objective of the authors to present a as simple as posible formulation for the model so. Being that so, though it may look abit naive at first, lets consider the following structural form for the lagged worker numbers at $t+1$  being: $$N_{t+1} = N_{t} \cdot ( 1 + \theta)$$
+
+Notice that under the prior structural statement, the forecasting of $N_{t+1}$ reduces to estimating $\theta$ the *lagged augmentation parameter* of the number of workers between $t$ & $t+1$.
+
+Yet even more naive and for the sake of simplicity lets assume $x_i = (\frac{N_{t+1}}{N_t} - 1) \sim N(\theta, \sigma^2)$ and that $\{x_i \}_{i=1}^N$ constitutes a colection of $i.i.d$ random variables i.e. a *random sample* $X_{(\underline{n})}$. Proceding after the construction of this model $\hat{\theta}$ and $\hat{\sigma}^2$ would correspond to the MLE estimators nothing new.
+
+Although the normal parametrization is convenient for its simplicity, it should stand out to any statistician that there is a major problem choosing the gaussian family because $\theta$ $ \epsilon$ $ \Theta = [ 0, \infty ]$ and under the normality assumption $\Theta =  [- \infty, \infty]$. For now, our way around will be to truncate such $N(\hat{\theta}, \hat{\sigma^2})$ and redistribute tail density [^1].
+
+[^1]: This approach is nothing more but a conditional density.
+
+In any context not involving such distressfull times everything would work fine, in fact our Fisherian conclusion would be that with 95% confidence level $\theta$ would lie within the **INSERTAR INTERVALO** [^2]. However things start getting funny when incorporating unobserved thesis on the probable behaiviour of $\theta_{COVID-19}$. Lets explore some alternatives:
+
+[^2]: This interval lenght corresponds to the *predictive interval lenght* given by $\frac{X_{n+1} - \overline{X}}{s_n \sqrt{1 + \frac{1}{n}}} \sim T^{n-1}$
+
+  a. Let Marcos be some well trained senior economist Ph.D on labor market dynamics, well known for his work as a government advisor for the Mexican Ministry of Labor. As an experienced fellow and given the experience in similar (or not that similar countries) Marcos believes, in fact he is almost sure, that $\theta_{COVID-19}$ will in fact be of around 5%. Still, the only way to reach 5% levels given the MLE framework would be arbitrary marking down *a posteriori* $\hat{\theta}_{COVID-19}$ under the pretence of having strong evidence in favour of 5%.
+  
+Many coleagues would argue that this textbook like toy model doesn´t even correspond to ordered nature of observations or even the parametral space. However any other, more sophisticated, model would encounter the same incovenience as there would be no input accounting for COVID-19 induced contraction at the time.
+  
+Although Marcos' opinion may be well founded and it could be right, it appears to be introduced into the inference machinery by coercing the likelihood giving the prior not voice nor vote. Additionaly this *mark down* fashion of placing constrains on the data is not accompanied by the corresponding increase in standard deviation due to the rise in uncertainty of the actual $\theta_{COVID-19}$ behaviour.
+
+
+  b. Katia, a fellow friend of Marcos, suggests increasing $\sigma_{MLE}^2$ by some amount to reflect the uncertainty. Marcos agrees with katia, however the question that will innevitably arise is, by how much?.
+  
+Again, any given arbitrary quantity for increasing variance will be an exogenous input in the classical inference workflow. Although there may be certain rules or thumb from which the writers are currently unaware, in the context of decition making environments an inference which could structurally and consistently incorporate both Marcos' and Katia's insight would be preferred over case specific tips.
+
 # 
-
-
-
-
