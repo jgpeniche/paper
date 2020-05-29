@@ -12,7 +12,7 @@ The worldwide health crisis induced by the the ' *SARS-COV 12* ', globally refer
 In particular, having a reliable ground where to stand becomes critical for policy makers or other high impact decision makers. The following paper presents a simple, yet non trivial, case study of Bayesian Inference to adress the difficulty of predicting the job loss induced by the COVID-19 lockdown measures. We also stress out some of the caveats of the classical aproach from the Fisher and Neyman school 
 of Mathematical statistics and contrast both approaches slanting outyurns in the context of desicion making.
 
-Section **I** begins by providing the reader a concrete outlook of the problem and the data at hando to tackle it. Section **II** translates the problem into its concrete mathematical and statistical representation and comments on the frailty of classical solution. Section **III** goes about the same formulation under a simple *by-hand* bayesian alternative while section **IV** proposes a more sophisticated solution and cautions the reader on the first asumptions. Finally section **V** is a brief utterance on the importance of providing a well grounded inference for decision making proceses.
+Section **I** begins by providing the reader a concrete outlook of the problem and the data at hando to tackle it. Section **II** translates the problem into its concrete mathematical and statistical representation and comments on the frailty of classical solution. Section **III** goes about the same formulation under a simple *by-hand* bayesian alternative and introduces the concept ok likelihood resilience, while section **IV** proposes a simpler solution using an alternative conjugate family. Finally section **V** is a brief utterance on the importance of providing a well grounded inference for decision making proceses.
 
 # Mexican Social Security Institute and lagged payrrol notices
 
@@ -33,9 +33,10 @@ Although the normal parametrization is convenient for its simplicity, it should 
 
 [^1]: This approach is nothing more but a conditional density.
 
-In any context not involving such distressfull times everything would work fine, in fact our Fisherian conclusion would be that with 95% confidence level $\theta$ would lie within the **INSERTAR INTERVALO** [^2]. However things start getting funny when incorporating unobserved thesis on the probable behaiviour of $\theta_{COVID-19}$. Lets explore some alternatives:
+In any context not involving such distressfull times everything would work fine, in fact our Fisherian conclusion would be that with 95% confidence level $\theta$ would lie within the **INSERTAR INTERVALO** [^2]. However things start getting funny when incorporating unobserved hypothesis on the probable behaiviour of $\theta_{COVID-19}$. Lets explore some alternatives:
 
-[^2]: This interval lenght corresponds to the *predictive interval lenght* given by $\frac{X_{n+1} - \overline{X}}{s_n \sqrt{1 + \frac{1}{n}}} \sim T^{n-1}$
+[^2]: This interval lenght corresponds to the *predictive interval lenght* given by $\frac{X_{n+1} - \overline{X}}{s_n \sqrt{1 + \frac{1}{n}}} \sim T^{n-1}$. The interval is not symetric because of the truncation.
+
 
   a. Let Marcos be some well trained senior economist Ph.D on labor market dynamics, well known for his work as a government advisor for the Mexican Ministry of Labor. As an experienced fellow and given the experience in similar (or not that similar countries) Marcos believes, in fact he is almost sure, that $\theta_{COVID-19}$ will in fact be of around 5%. Still, the only way to reach 5% levels given the MLE framework would be arbitrary marking down *a posteriori* $\hat{\theta}_{COVID-19}$ under the pretence of having strong evidence in favour of 5%.
   
@@ -76,7 +77,7 @@ From last paragraph its particuarly worth discussing the term *likelihood resili
 
 **DESCRIBIR COMPORTAMIENTO**. In other words likelihood resilience in this model is not just an intrinsic characteristic that prevents arbitrary data coercion or the *lying with statistics* issue but a quantifiable measure of how robust the inference is against extreme hypotheis.
 
-Nonetheless many may be still be troubled by the known variance assumption, which is in fact totally reasonable. Relaxing this premise is just a matter of a litter more mathematical intricacy [^7]. For a more realistic scenario we choose the Normal-InverseGamma family where the predictive distribution for $\hat{\theta}_{COVID-19}$ is: $$f(X_{na+1} | X_{(\underline{n})}) \sim  t_{2 \alpha_n}(x | \mu_n, \frac{\beta_n( \kappa_n + 1)}{\alpha_n \kappa_n})$$
+Nonetheless many may be still be troubled by the known variance assumption, which is in fact totally reasonable. Relaxing this premise is just a matter of a litter more mathematical intricacy [^7]. For a more realistic scenario we choose the Normal-InverseGamma family where the predictive distribution for $X_{n+1}$ is: $$f(X_{na+1} | X_{(\underline{n})}) \sim  t_{2 \alpha_n}(x | \mu_n, \frac{\beta_n( \kappa_n + 1)}{\alpha_n \kappa_n})$$
 Where:
 
   + $\mu_n = \frac{\kappa_0  \mu_0 + n \overline{x}}{\kappa_0 + n}$
@@ -84,7 +85,30 @@ Where:
   + $\kappa_n = \kappa_0 + n$
   + $\alpha_n = \alpha_0 + \frac{n}{2}$
   
-Additionally the posterior ma
-  
+[^7]: All normal conjugacy cases are weel documented in **Insertar cita**.
 
-[^7]: All normal conjugacy cases are weel documented in **Insertar cita**
+As in the known variance case described some lines earlier, we need to truncate the posterior predictive distribution to adjust for $\theta$ 's parametral space yielding the following 95% credibility interval of **INSERTAR INTERVALO** [^8].
+
+[^8]: Truncation of posterior predictive t-distribution was dode with r package *truncdist* v. 1.0-2.
+
+Figure 2 displays a similar likelihood resilience tests for the posterior predictive distribution.
+
+**FIGURA 2**
+
+
+**DESCRIPCIÓN FIGURA 2**
+
+Although analytical manipulation become a bit more messy than obtainign the MLE from the classical aproach, it should be obvious by know the benefit of advocating for the later methodology. We gain a coherent inference substructure to include unobserved hypotheis, we get the likelihood resilience insurance for free and in the conjugte case we can analytically interaction between model paramters (which in the mark-down fashion we cannot).
+
+# The Exponential-Gamma system 
+
+We finally need to adress the parametral space issue as truncation may introduce some distortions of the interest paramter's behaviour. To account for a more realistic representation of $\Theta$, in which case we could opt to characterize $X_i$ as $Exp(\theta)$ however the MLE will still have problem **a** and **b** as described in section I. 
+
+The bayesian alternative is to require the Exponential-Gamma conjugate family. Here $X_i$ is distributed as before and $\theta \sim \Gamma(\theta | \alpha_0, \beta_0)$ and the posterior predictive distribution is given by $$f(X_{n+1}| X_{(\underline{n})}) \sim Pareto(x| \alpha_n, \beta_n)$$
+Where
+
+  + $\alpha_n = \alpha_o + n -1$
+  + $\beta_n = \beta_0 + n \overline{x}$
+
+
+Given this second conjugate scheme we account for the actual $\Theta$, in fact we simplify the normal conjugate case and again we acquiere the likelihood resilience insurance. This 
