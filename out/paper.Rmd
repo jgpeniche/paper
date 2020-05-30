@@ -1,9 +1,29 @@
 ---
 title: "Beyesian Inference for Decision Making under COVID-19: A case study"
+subtitle: ""
 author: ""
-date: "5/26/2020"
-output: pdf_document
+header-includes: 
+  - \usepackage{fancyhdr}
+date: ""
+output: 
+   pdf_document:
+    toc: FALSE
+    highlight: 'kate'
+    number_sections: TRUE
+editor_options: 
+  chunk_output_type: console
+abstract: "Inference on circumstances where hypothesis have to be done with no data to substantiate them is tough. The following paper presents a case study on COVID-19 induced job loss and how the bayesian theory of inference sets clear ground rules for incorporating such hypothesis and the caveats of doing so with the Mathematical Statistics approach"
 ---
+
+\pagenumbering{arabic} 
+\fancyhead[L]{\thepage}
+\fancyhead[C]{}
+\fancyhead[R]{}
+\fancyfoot[L]{Haro}
+\fancyfoot[R]{Peniche}
+\pagestyle{fancy}
+\addtolength{\headheight}{1.0cm}
+\pagestyle{fancyplain}
 
 **Introduction**
 
@@ -12,7 +32,7 @@ The worldwide health crisis induced by the the ' *SARS-COV 12* ', globally refer
 In particular, having a reliable ground where to stand becomes critical for policy makers or other high impact decision makers. The following paper presents a simple, yet non trivial, case study of Bayesian Inference to adress the difficulty of predicting the job loss induced by the COVID-19 lockdown measures. We also stress out some of the caveats of the classical aproach from the Fisher and Neyman school 
 of Mathematical statistics and contrast both approaches slanting outyurns in the context of desicion making.
 
-Section **I** begins by providing the reader a concrete outlook of the problem and the data at hando to tackle it. Section **II** translates the problem into its concrete mathematical and statistical representation and comments on the frailty of classical solution. Section **III** goes about the same formulation under a simple *by-hand* bayesian alternative and introduces the concept ok likelihood resilience, while section **IV** proposes a simpler solution using an alternative conjugate family. Finally section **V** is a brief utterance on the importance of providing a well grounded inference for decision making proceses.
+Section **I** begins by providing the reader a concrete outlook of the problem and the data at hando to tackle it. Section **II** translates the problem into its concrete mathematical and statistical representation and comments on the frailty of classical solution. Section **III** goes about the same formulation under a simple *by-hand* bayesian alternative and introduces the concept ok likelihood resilience, while section **IV** proposes a simpler solution using an alternative conjugate family. Section **V** presents a more sophisticated approach through Monte Carlo Markoc Chain Stochastic simulation an finally section **VI** is a brief utterance on the importance of providing a well grounded inference for decision making proceses.
 
 # Mexican Social Security Institute and lagged payrrol notices
 
@@ -111,4 +131,18 @@ Where
   + $\beta_n = \beta_0 + n \overline{x}$
 
 
-Given this second conjugate scheme we account for the actual $\Theta$, in fact we simplify the normal conjugate case and again we acquiere the likelihood resilience insurance. This 
+Given this second conjugate scheme we account for the actual $\Theta$, in fact we gains a substntially more simple math than the normal conjugate case and again we acquiere the likelihood resilience insurance for free. Under this new parametrization and setting $\alpha_0 =$ **INSERTAR NÚMERO** and $\beta_0 =$ **INSERTAR NÚMERO** we obtain a 95% credible interval of **INSERTAR INTERVALO**.
+
+Again we can directly analyse likelihood resilience to different priors yielding figure 3.
+
+
+**FIGURA 3**
+
+
+# Going full MCMC bayesian
+
+In spite of sections IV and V proposals we may still want to try some other "out the box" solution, for example fitting a Gamma distribution to the data. Either way we take numerical methods will be needed.
+
+For the classical approach
+
+On the other hand for the bayesian approach we would like to use 
