@@ -105,7 +105,7 @@ Where:
   + $\kappa_n = \kappa_0 + n$
   + $\alpha_n = \alpha_0 + \frac{n}{2}$
   
-[^7]: All normal conjugacy cases are weel documented in **Insertar cita**.
+[^7]: All normal conjugacy cases are wel documented in: Murphy. *Conjugate analysis of the Gaussian distribution*. 2007. Avaible [here](https://www.cs.ubc.ca/~murphyk/Papers/bayesGauss.pdf)
 
 As in the known variance case described some lines earlier, we need to truncate the posterior predictive distribution to adjust for $\theta$ 's parametral space yielding the following 95% credibility interval of **INSERTAR INTERVALO** [^8].
 
@@ -141,7 +141,18 @@ Again we can directly analyse likelihood resilience to different priors yielding
 
 # Going full MCMC bayesian
 
-In spite of sections IV and V proposals we may still want to try some other "out the box" solution, for example fitting a Gamma distribution to the data. Either way we take numerical methods will be needed.
+In spite of sections IV and V proposals we may still may want to try some other "out the box" solution, for example fitting a log-Normal distribution to the data. Although in this case the classical approach offers an analytical solution through MLE, the output will lack, again, the robustness to incorporate COVID-19 diminished $\theta$ hypotheisis. On the other hand if we take the bayesian way we still have a conjugate case for the known variance case, however gong beyond that hypothesis would requiere numerical methods, in particular, Markov Chain Monte Carlo stochastics simulation.
+
+Although, at first, this may look as a downside, abandoning conjugate schemes to MCMC methdos, if proceding with cuation, give us an amazing improvement in modeling flexibility.
+
+For our last example lets consider $X_{i} \sim logNormal(x | \theta,\sigma^2)$ with $f(\theta) \sim \Gamma(\theta | \alpha, \beta)$ and $f(\sigma^2) \sim \Gamma^{-1}(\sigma^2 | a, b)$
+
+
+**EL CASO LOGNORMAL ES UNA JALADA PERO ESTÁ MUY BUENO LO PUEDES ENCONTRAR DOCUMENTADO AQUÍ (SE HIZO CON R)** https://projecteuclid.org/download/pdfview_1/euclid.ba/1354024469 
+
+
+
+
 
 For the classical approach
 
