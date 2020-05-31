@@ -165,6 +165,6 @@ Table 1 depicts $\theta$´s different values for in terms of job loss in Mexico 
 
 Critical decisions for policy making, such as budget allocation for unemployment insurance or setting target employment levels arise from choosing a particular number from the table above, and any of these translates in a difference of hundreds or maybe millions in terms of cash. Moreover its desirable to have a as robust as possible quantity in which we can rely on. 
 
-The frequentist approach, as powerful as it is, may not be the best choice for a setting such the one we are facing now a days[^8]. **CONLUIR**
+The frequentist approach, as powerful as it is, may not be the best choice for a setting such the one we are facing now a days[^9]. **CONLUIR**
 
-[^8]: Besides many authors as Mendoza (**INSERTAR AÑO**) have documented many issues with the classical procedures such as failures in the construction of confidence intervals [see](insertar link)
+[^9]: Besides many authors as Mendoza (**INSERTAR AÑO**) have documented many issues with the classical procedures such as failures in the construction of confidence intervals [see](insertar link)
